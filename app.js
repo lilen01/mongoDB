@@ -19,7 +19,7 @@ const dbName = 'userdb';
 const connectToDatabase = async () => {
 	try {
 		await client.connect();
-		console.log('Connected to database successfully: ' + dbName);
+		console.log('Connected to database: ' + dbName);
 	} catch (err) {
 		console.error("Error connecting to the database", err);
 	}
@@ -28,6 +28,10 @@ const connectToDatabase = async () => {
 const main  = async () => {
 	try {
 		await connectToDatabase();
+
+		const db = client.db(dbName);
+		const collection = db.collection();
+
 	} catch (error) {
 		console.error("Error connecting to the database", error);
 	} finally {
