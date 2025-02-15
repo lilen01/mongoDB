@@ -1,4 +1,7 @@
+// import { MongoClient } from 'mongodb';
 const { MongoClient } = require('mongodb');
+
+// import dotenv module
 require('dotenv').config();
 
 let uri;
@@ -13,30 +16,19 @@ try {
 	process.exit(1);
 }
 
+// Create a new MongoClient
 const client = new MongoClient(uri);
 
+// Function to connect to the database
 const connectToDatabase = async () => {
 	try {
-		// await client.connect();
-		console.log('Connected to database successfully: ' + client.db('userdb').databaseName);
-		const db = client.db('userdb');
-		return db;
+		await client.connect();	// Connect to the client
+		console.log('Connected to database successfully: ' + client.db('userdb').databaseName); // Print the database name
+		const db = client.db('userdb');	// Connect to the database
+		return db; // Return the database object
 	} catch (err) {
 		console.error("Error connecting to the database", err);
 	}
 };
-
-// const main  = async () => {
-// 	try {
-// 		await connectToDatabase();
-// 	} catch (error) {
-// 		console.error("Error connecting to the database", error);
-// 	} finally {
-// 		// await client.close();
-// 		// console.log('Disconnected from database');
-// 	}
-// };
-
-// main();
 
 module.exports = { connectToDatabase };
