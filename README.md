@@ -13,7 +13,7 @@ This project demonstrates the use of MongoDB, a NoSQL database, for storing and 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/mongoDB.git
+    git clone https://github.com/lilen01/mongoDB.git
     ```
 2. Navigate to the project directory:
     ```bash
