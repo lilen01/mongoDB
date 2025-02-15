@@ -1,8 +1,11 @@
 //import mongoose module
 const mongoose = require('mongoose');
 
+// import dotenv module
+require('dotenv').config();
+
 // Connection URL
-const url = "mongodb+srv://root:q9irpnBepRPIEEs4@cluster0.50ppy.mongodb.net/userdb?retryWrites=true&w=majority&appName=Cluster0";
+const url = process.env.MONGO;
 
 // Connect to MongoDB
 mongoose.connect(url)
